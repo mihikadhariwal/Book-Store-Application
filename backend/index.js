@@ -2,9 +2,12 @@ import express, { json } from "express";
 import { PORT, mongoURL } from "./config.js";
 import mongoose from "mongoose";
 import { Book } from "./models/bookModel.js";
+import cors from "cors";
+
 const app = express();
 
 app.use(express.json()); //middleware for parsing request body
+app.use(cors());
 
 mongoose
   .connect(mongoURL)
